@@ -1,0 +1,8 @@
+{
+    "port": 5000,
+    "mongoUri": "mongodb+srv://admin:123456789123456789@cluster0.1ysbr.mongodb.net/app?retryWrites=true&w=majority",
+    "jwtSecret": "zhuravka web app"
+   
+}
+
+ 

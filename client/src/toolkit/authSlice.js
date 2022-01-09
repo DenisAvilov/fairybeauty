@@ -1,14 +1,7 @@
 /* eslint-disable getter-return */
-import { createSlice, PayloadAction, configureStore, getDefaultMiddleware, nanoid } from "@reduxjs/toolkit"
+import { createSlice, configureStore, getDefaultMiddleware, } from "@reduxjs/toolkit"
 import logger from 'redux-logger'
 
-// type InitAuth = {
-//     login: () => void,
-//     loginOut: () => void,
-//     token: string | null,
-//     userId: string | null,
-//     ready: boolean,
-// }
 
 function noop() { }
 const initAuth = {
@@ -28,10 +21,13 @@ const authSlice = createSlice({
         isAuth: {
             reducer: (state, { payload }) => {
                 // eslint-disable-next-line no-unused-expressions
+                // console.log('reducer', payload)
+                // console.log('reducer state', state)
                 state = payload
                 return state
             },
             prepare: (data) => {
+                // console.log('data', data)
                 return {
                     payload: {
                         data

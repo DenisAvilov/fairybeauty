@@ -7,15 +7,18 @@ export const Post = () => {
     const { request } = useHttp()   
 
     const getPost = useCallback(async () => {
-        const req = await request('/post')
-        console.log('post req:', req) 
+        try{
+            const req = await request('/post')
+            console.log('post req:', req)
+        }
+        catch(e){ console.log('err Posts Get:', e)}
     } ,[request])
-    
+    //2.35 min
 useEffect(() => {
     getPost()
 }, [getPost])
     return( 
     <div>
-        <h1>Post</h1>
+        <h1>Posts</h1>    
     </div>  )
 }

@@ -1,5 +1,6 @@
 import React from "react"
 import { Switch, Route, Redirect } from "react-router-dom"
+import { PostGreate } from "../componentsCurrent/postCreate/PostGreate"
 import { Page404 } from "../componentsPages/404/Page404"
 import { Login } from "../componentsPages/authPages/login/Login"
 import { Register } from "../componentsPages/authPages/register/Register"
@@ -18,7 +19,13 @@ export const useRouter = (isAuthenticated) => {
                 <Route path="/private" exact>
                     <Private />
                 </Route>
-                <Route path="/posts">
+                <Route path="/post/create" exact>
+                    <PostGreate />
+                </Route>
+                <Route path="/post" exact>
+                    <Post />
+                </Route>
+                <Route path="/post/:id">
                     <Post />
                 </Route>
                 <Route path="/404" exact>
@@ -38,6 +45,9 @@ export const useRouter = (isAuthenticated) => {
             </Route>
             <Route path="/register" exact>
                 <Register />
+            </Route>
+            <Route path="/post">
+                <Post />
             </Route>
             <Redirect to="/" />
         </Switch>

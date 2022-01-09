@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 //Подготавливаем роуты, в функцмм промежуточной обработки
 app.use('/', require('./routers/auth.routers'))
-// app.use('/post', require('./routers/post.routers'))
+app.use('/post', require('./routers/post.routers'))
 
 const start = async () => {
     try {

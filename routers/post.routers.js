@@ -36,6 +36,13 @@ router.post('/create', auth, async (req, res) => {
         //Почитать 2.25 min
         //Почитать 2.33 min
         // https://prognote.ru/web-dev/back-end/how-to-work-in-node-js-with-mongodb/
+        //построение Api
+        //https://habr.com/ru/post/599127/
+        //
+        //https://habr.com/ru/post/414951/
+        //Swagger (OpenAPI 3.0)
+        //https://habr.com/ru/post/541592/
+
     }
     catch (e) {
         res.status(500).json({ message: 'Что то пошло не так post /post' })

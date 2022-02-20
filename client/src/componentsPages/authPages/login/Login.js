@@ -87,7 +87,7 @@ export const Login = () => {
   //Функция отравляем запрос на сервер для входа в систему
   const loginHandler = async () => {
     try {
-      const data = await request('/login', 'POST', { ...form })
+      const data = await request('/api/login', 'POST', { ...form })
       dispatch(authAction(stateLogo.data.login(data.token, data.userId)))
       message(data.message)
     }

@@ -26,6 +26,7 @@ const schema = new mongoose.Schema({
         //у каждого пользователя будут свои собственные данные
         // Привязываемся к будующей модели которую создадим Post       
     },
+    subscription: { type: Boolean, default: false },
     post: [{ type: mongoose.Types.ObjectId, ref: 'Post' }]
 
 });

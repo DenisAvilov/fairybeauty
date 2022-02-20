@@ -1,28 +1,22 @@
 /* eslint-disable getter-return */
 import { createSlice, configureStore, getDefaultMiddleware, } from "@reduxjs/toolkit"
 import logger from 'redux-logger'
+// import { AuthResponse } from "../models/response/AuthResponse"
+import IUser from '../models/IUser'
 
-
-function noop() { }
-const initAuth = {
-    login: noop,
-    loginOut: noop,
-    token: null,
-    userId: null,
-    ready: false,
-    isAuthenticated: false
+// function noop() { }
+const authInit = {
+    user: IUser,
+    isAuth: false,
+    isLoading: false
 }
-
 
 const authSlice = createSlice({
     name: 'initAuth',
-    initialState: initAuth,
+    initialState: authInit,
     reducers: {
         isAuth: {
             reducer: (state, { payload }) => {
-                // eslint-disable-next-line no-unused-expressions
-                // console.log('reducer', payload)
-                // console.log('reducer state', state)
                 state = payload
                 return state
             },
@@ -39,7 +33,7 @@ const authSlice = createSlice({
     }
 })
 //create action
-export const { isAuth: authAction } = authSlice.actions
+const { isAuth: authAction } = authSlice.actions
 
 //create reducer 
 const reducer = {
@@ -51,7 +45,7 @@ const middleware = [...getDefaultMiddleware(
         serializableCheck: false
     }
 ), logger]
-export default configureStore({
-    reducer,
-    middleware
-})
+// export default configureStore({
+//     reducer,
+//     middleware
+// })

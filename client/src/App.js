@@ -12,13 +12,15 @@ import { Container } from '@material-ui/core'
 const App = () => {
   const { login, loginOut, token, userId, ready } = useInitialization()
   const dispatch = useDispatch()
-  let isAuthenticateded = !!token
+  let isAuthenticated = !!token
   useEffect(() => {
     dispatch(authAction({
-      login, loginOut, token, userId, ready, isAuthenticateded
+      login, loginOut, token, userId, ready, isAuthenticated
     }))
-  }, [login, loginOut, token, userId, ready, authAction])
-  const routes = useRouter(isAuthenticateded)
+  }, [login, loginOut, token, userId, ready, dispatch, isAuthenticated])
+
+  const testAuth = useSelector(state => state.isAuthReducer.data?.isAuthenticated)
+  const routes = useRouter(testAuth)
   if (!ready) return <Spiner />
   return (
     <>
@@ -31,7 +33,7 @@ const App = () => {
 }
 
 
-export default App
+export default React.memo(App)
 
 
 

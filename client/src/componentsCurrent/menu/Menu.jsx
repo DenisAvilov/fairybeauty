@@ -33,9 +33,15 @@ const useStyles = makeStyles((theme) => ({
 export default function MenuAppBar() {
   const distpatch = useDispatch()
 
-  const isAuthenticateded = useSelector(state => state.isAuthReducer.data.isAuthenticateded)
-  const isLoginOut = useSelector(state => state.isAuthReducer.data.loginOut)
+  // const isAuthenticated = useSelector(state => state.isAuthReducer.data.isAuthenticated)
+  const isAuthenticated = useSelector(state => state.isAuthReducer.data?.isAuthenticated)
+  // const isAuthenticated = true
+  const isLoginOut = useSelector(state => state.isAuthReducer.data?.loginOut)
+  // const isLoginOut = ()=> console.log('function out')
 
+  console.log('Menu')
+
+   
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl) 
@@ -55,7 +61,7 @@ export default function MenuAppBar() {
           <Typography variant="h6" className={classes.title}>
               <NavLink to="/" className={classes.logo}> Zhuravka Juliy  </NavLink>
           </Typography>
-          {isAuthenticateded ? (
+          {isAuthenticated ? (
             <div>
                 <IconButton
                 aria-label="account of current user"

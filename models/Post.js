@@ -1,7 +1,7 @@
 // Один файл это одна модель
 const { Schema, model, Types } = require('mongoose')
 // В объект schema описываем поля для пользователя
-const schema = new Schema({
+const PostSchema = new Schema({
     // from: { type: String },
     to: { type: String, require: true, unique: true },
     data: { type: Date, default: Date.now },
@@ -14,4 +14,4 @@ const schema = new Schema({
 });
 
 //Даем название нашей модели, схема по которой он работает это объект schema
-module.exports = model('Post', schema);
+module.exports = model('Post', PostSchema);

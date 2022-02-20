@@ -10,7 +10,8 @@ import { Post } from "../componentsPages/post/Post"
 import { Private } from "../componentsPages/private/Private"
 
 export const useRouter = (isAuthenticated) => {
-    if (isAuthenticated) {
+    const bool = false
+    if (bool) {
         return (
             <Switch>
                 <Route path="/" exact>
@@ -40,10 +41,10 @@ export const useRouter = (isAuthenticated) => {
             <Route path="/" exact>
                 <Main />
             </Route>
-            <Route path="/login" exact>
+            <Route path="/api/login" exact>
                 <Login />
             </Route>
-            <Route path="/register" exact>
+            <Route path="/api/registration" exact>
                 <Register />
             </Route>
             <Route path="/post">

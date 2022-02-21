@@ -14,8 +14,9 @@ class UserController {
                 //в error выбираем масив ошибок
                 return next(ApiError.BadRequest('Ошибка при валидации', error.array()))
             }
+
             const { email, password, firstName, lastName, subscription } = req.body
-            console.log('user-controller 1', email, password)
+            console.log('req.body', req.body)
             const userData = await userService.reqistration(email, password, firstName, lastName, subscription)
             //сохраняем refreshToken в куках. require('cookie-parser') в index.js
             res.cookie('refreshToken', userData.refreshToken, {
